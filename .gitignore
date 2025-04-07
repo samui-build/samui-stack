@@ -1,1 +1,6 @@
-/tmp
+apps/web/.env
+tmp
+build
+dist
+node_modules
+.react-router
