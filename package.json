@@ -13,6 +13,8 @@
   "scripts": {
     "check": "npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true",
     "dev:services": "docker-compose up",
+    "docker:build": "docker build -t samui-stack-web:latest .",
+    "docker:run": "docker run --rm --name samui-stack-web -p 3000:3000 --env-file .env samui-stack-web:latest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "version": "1.0.0"
