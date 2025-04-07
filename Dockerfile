@@ -14,4 +14,4 @@ FROM base AS web
 COPY --from=build /prod/web /prod/web
 WORKDIR /prod/web
 EXPOSE 3000
-CMD [ "pnpm", "start" ]
+CMD [ "npm", "start" ]
