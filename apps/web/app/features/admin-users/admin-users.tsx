@@ -1,13 +1,13 @@
 import { Anchor, Group, Paper, Stack, Text } from '@mantine/core'
 import { Link } from 'react-router'
+import { appMeta } from '~/lib/app-meta'
 import { AppThemeSelect } from '~/ui/app-theme-select'
-import type { Route } from './+types/home'
 
 export function meta() {
-  return [{ title: 'New React Router App' }, { name: 'description', content: 'Welcome to React Router!' }]
+  return appMeta()
 }
 
-export default function Home(props: Route.ComponentProps) {
+export default function Dashboard() {
   return (
     <Stack p="xl" gap="xl">
       <Paper withBorder p="md">
