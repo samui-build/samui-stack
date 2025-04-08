@@ -1,5 +1,4 @@
-import { createTheme, type MantineColorScheme, MantineProvider } from '@mantine/core'
-import { DEFAULT_THEME } from '@mantine/core'
+import { createTheme, DEFAULT_THEME, MantineProvider } from '@mantine/core'
 import type { ReactNode } from 'react'
 
 const theme = createTheme({
@@ -9,7 +8,7 @@ const theme = createTheme({
   },
 })
 
-export function AppThemeProvider({ children, colorScheme }: { children: ReactNode; colorScheme: 'light' | 'dark' }) {
+export function UiThemeProvider({ children, colorScheme }: { children: ReactNode; colorScheme: 'light' | 'dark' }) {
   return (
     <MantineProvider forceColorScheme={colorScheme} theme={theme}>
       {children}

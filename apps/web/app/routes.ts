@@ -5,28 +5,34 @@ export default [
     // API routes go here
     route('set-theme', 'api/set-theme.tsx'),
   ]),
-  layout('./ui/app-layout-admin.tsx', [
-    // Admin routes go here
+  // Admin routes go here
+  layout('features/admin/layout-admin.tsx', [
     ...prefix('admin', [
+      index('features/admin/route-admin-dashboard.tsx'),
+      ...prefix('settings', [
+        //
+        route('general', 'features/admin/route-admin-settings-general.tsx'),
+        route('security', 'features/admin/route-admin-settings-security.tsx'),
+      ]),
       ...prefix('users', [
         //
-        index('features/admin-users/admin-users.tsx'),
+        index('features/admin/route-admin-users.tsx'),
       ]),
     ]),
   ]),
-  layout('./ui/app-layout-app.tsx', [
-    // App routes go here
-    route('dashboard', 'features/dashboard/dashboard.tsx'),
-    route('todo', 'features/todo/todo-list.tsx'),
+  // App routes go here
+  layout('features/app/layout-app.tsx', [
+    route('dashboard', 'features/app/route-dashboard.tsx'),
+    route('todo', 'features/app/route-todo.tsx'),
   ]),
-  layout('./ui/app-layout-auth.tsx', [
-    // Auth routes go here
-    route('login', 'features/auth/login.tsx'),
-    route('logout', 'features/auth/logout.tsx'),
+  // Auth routes go here
+  layout('features/auth/layout-auth.tsx', [
+    route('login', 'features/auth/route-login.tsx'),
+    route('logout', 'features/auth/route-logout.tsx'),
   ]),
-  layout('./ui/app-layout-homepage.tsx', [
-    // Homepage routes go here
-    index('features/home/index.tsx'),
-    route('about', 'features/home/about.tsx'),
+  // Homepage routes go here
+  layout('features/homepage/layout-homepage.tsx', [
+    index('features/homepage/route-index.tsx'),
+    route('about', 'features/homepage/route-about.tsx'),
   ]),
 ] satisfies RouteConfig

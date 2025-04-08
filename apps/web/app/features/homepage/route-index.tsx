@@ -1,19 +1,17 @@
 import { Anchor, Group, Paper, Stack, Text } from '@mantine/core'
 import { Link } from 'react-router'
 import { appMeta } from '~/lib/app-meta'
-import { AppThemeSelect } from '~/ui/app-theme-select'
 
 export function meta() {
-  return appMeta()
+  return appMeta('Home')
 }
 
-export default function Dashboard() {
+export default function RouteIndex() {
   return (
     <Stack p="xl" gap="xl">
       <Paper withBorder p="md">
         <Group justify="space-between">
           <Text>Hello World</Text>
-          <AppThemeSelect />
         </Group>
       </Paper>
       <Paper withBorder p="md">

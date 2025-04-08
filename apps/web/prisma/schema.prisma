@@ -13,4 +13,18 @@ model Todo {
   updatedAt DateTime @updatedAt
   title     String
   completed Boolean  @default(false)
+  owner     User     @relation(fields: [ownerId], references: [id])
+  ownerId   String
+}
+
+model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  username String  @unique
+  name     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  todos Todo[]
 }

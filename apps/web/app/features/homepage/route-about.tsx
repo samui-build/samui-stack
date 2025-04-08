@@ -1,12 +1,11 @@
 import { Group, Paper, Stack, Text } from '@mantine/core'
 import { appMeta } from '~/lib/app-meta'
-import type { Route } from './+types/about'
 
 export function meta() {
-  return appMeta('About', 'About page')
+  return appMeta('About')
 }
 
-export default function Index(props: Route.ComponentProps) {
+export default function RouteAbout() {
   return (
     <Stack p="xl" gap="xl">
       <Paper withBorder p="md">

@@ -5,7 +5,8 @@ import './app.css'
 import { Box, ColorSchemeScript, Flex, mantineHtmlProps, Text } from '@mantine/core'
 import { Theme, ThemeProvider, useTheme } from 'remix-themes'
 import { themeSessionResolver } from '~/lib/sessions.server'
-import { AppThemeProvider } from '~/ui/app-theme-provider'
+import { UiContextProvider } from '~/ui/ui-context-provider'
+import { UiThemeProvider } from '~/ui/ui-theme-provider'
 
 const defaultTheme = Theme.DARK
 
@@ -40,7 +41,7 @@ function LayoutDocument({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <AppThemeProvider colorScheme={colorScheme}>{children}</AppThemeProvider>
+        <UiThemeProvider colorScheme={colorScheme}>{children}</UiThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -49,7 +50,16 @@ function LayoutDocument({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />
+  return (
+    <UiContextProvider
+      config={{
+        name: 'Placeholder',
+        logo: '/logo.svg',
+      }}
+    >
+      <Outlet />
+    </UiContextProvider>
+  )
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
