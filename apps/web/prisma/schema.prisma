@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator zod {
+  provider = "zod-prisma-types"
+  output   = "../app/lib/generated/zod"
+}
+
 model Todo {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -17,10 +22,11 @@ model Todo {
 
 model User {
   id       String  @id @default(cuid())
-  email    String  @unique
-  username String  @unique
-  name     String?
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  username  String   @unique
+  password  String?
+  name      String?
+  avatarUrl String?
+  admin     Boolean  @default(false)
 }

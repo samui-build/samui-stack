@@ -18,3 +18,18 @@ const sessionStorage = createCookieSessionStorage({
 })
 
 export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
+
+const { getSession, commitSession, destroySession } = createCookieSessionStorage({
+  cookie: {
+    domain,
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 15,
+    name: `__${appId}-auth`,
+    path: '/',
+    sameSite: 'lax',
+    secrets: [secret],
+    secure, // 15 days
+  },
+})
+
+export { getSession, commitSession, destroySession }
