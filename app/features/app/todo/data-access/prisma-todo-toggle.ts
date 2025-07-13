@@ -1,4 +1,5 @@
 import { prisma } from '~/lib/db.server'
+import { logger } from '~/lib/helpers/logger'
 
 export async function prismaTodoToggle(data: FormData) {
   const id = data.get('id')
@@ -10,5 +11,10 @@ export async function prismaTodoToggle(data: FormData) {
     throw new Error('Todo not found')
   }
 
-  return await prisma.todo.update({ where: { id }, data: { completed: !found.completed } })
+  try {
+    return await prisma.todo.update({ where: { id }, data: { completed: !found.completed } })
+  } catch (error: unknown) {
+    logger.error({ event: 'prisma_todo_toggle_failed', error: (error as Error).message })
+    throw new Error('Failed to toggle todo')
+  }
 }
