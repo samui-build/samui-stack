@@ -1,6 +1,14 @@
-apps/web/.env
-tmp
-build
-dist
-node_modules
-.react-router
+.DS_Store
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+/dist/
+/tmp/
+.env
+
+# Logs
+logs
+*.log
+pnpm-debug.log*

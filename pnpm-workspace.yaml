@@ -1,5 +1,6 @@
-packages:
-  - apps/*
-syncInjectedDepsAfterScripts:
-  - build
-injectWorkspacePackages: true
+onlyBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - esbuild
+  - lefthook
+  - prisma
