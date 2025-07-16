@@ -1,6 +1,6 @@
-import { Prisma, type User } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 import { createPrismaClientServer } from '~/lib/create-prisma-client.server'
+import type { Prisma, User } from './generated/prisma/client'
 
 let db: AppPrismaClient
 

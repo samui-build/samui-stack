@@ -1,5 +1,5 @@
 import { Button, Group, Paper, Text } from '@mantine/core'
-import type { Todo } from '@prisma/client'
+import type { Todo } from '~/lib/db.server'
 
 export function TodoUiListItem({
   item,

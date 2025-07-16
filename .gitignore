@@ -8,6 +8,8 @@
 /tmp/
 .env
 
+/app/lib/generated/prisma
+
 # Logs
 logs
 *.log

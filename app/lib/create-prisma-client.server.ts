@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '~/lib/generated/prisma/client'
 import { computeUserAvatarUrl, defaultUserAvatarUrl } from '~/lib/helpers/compute-user-avatar-url'
 
 export function createPrismaClientServer() {

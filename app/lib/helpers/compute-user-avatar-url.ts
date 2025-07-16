@@ -1,4 +1,4 @@
-import type { User } from '@prisma/client'
+import type { User } from '~/lib/db.server'
 
 export function computeUserAvatarUrl(user: Pick<User, 'avatarUrl' | 'username'>) {
   return user.avatarUrl ? user.avatarUrl : defaultUserAvatarUrl(user)

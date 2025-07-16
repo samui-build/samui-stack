@@ -1,5 +1,5 @@
 import { Stack } from '@mantine/core'
-import type { Todo } from '@prisma/client'
+import type { Todo } from '~/lib/db.server'
 import { TodoUiListItem } from './todo-ui-list-item'
 
 export function TodoUiList({
