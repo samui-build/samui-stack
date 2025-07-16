@@ -12,9 +12,17 @@ export async function adminUserCreate(input: UserCreateInput): Promise<User> {
   if (found) {
     throw new Error('User already exists')
   }
+
+  const userCount = await prisma.user.count()
+
   try {
-    const created = await prisma.user.create({ data })
-    logger.info({ event: 'admin_user_create_success', userId: created.id, username: created.username })
+    const created = await prisma.user.create({ data: { ...data, admin: userCount === 0 } })
+    logger.info({
+      event: 'admin_user_create_success',
+      userId: created.id,
+      username: created.username,
+      admin: created.admin,
+    })
     return created
   } catch (error: unknown) {
     logger.error({ event: 'admin_user_create_failed', error: (error as Error).message })
