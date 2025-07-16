@@ -34,7 +34,7 @@
       "scaffold": {
         "to": "{{name}}",
         "paths": [
-          "src"
+          "app"
         ]
       }
     }
