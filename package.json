@@ -11,9 +11,10 @@
     "docker:run": "docker run -it --rm --name samui-stack --env-file .env -e DATABASE_URL=postgresql://samui-stack:samui-stack@host.docker.internal:5432/samui-stack?schema=public -p 3000:3000 samui-stack:latest",
     "format": "prettier --write .",
     "lint": "prettier --check .",
+    "postinstall": "npm run prisma:generate",
     "prisma:deploy": "prisma migrate deploy",
-    "prisma:generate": "prisma generate",
-    "start": "prisma migrate deploy && prisma generate && react-router-serve ./build/server/index.js",
+    "prisma:generate": "prisma generate && prettier --write app/lib/generated",
+    "start": "prisma migrate deploy && npm run prisma:generate && react-router-serve ./build/server/index.js",
     "test": "vitest",
     "typecheck": "react-router typegen && tsc"
   },
